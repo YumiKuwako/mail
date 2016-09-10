@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  host: localhost
+ 
+development:
+  <<: *default
+  database: mail_development
+ 
+test:
+  <<: *default
+  database: mail_test
+ 
+production:
+  <<: *default
+  database: mail_production
+  username: mail
+  password: <%= ENV['MAIL_DATABASE_PASSWORD'] %>
+
